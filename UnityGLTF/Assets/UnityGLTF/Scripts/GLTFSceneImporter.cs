@@ -1092,8 +1092,6 @@ namespace UnityGLTF
                 // previous nodes should be parented to sceneObj so destroying sceneObj should take
                 // care of them.
 
-                Debug.Log($"ConstructScene exception caught: {ex.GetType().ToString()} for scene {_gltfFileName}");
-
                 throw;
             }
 		}
