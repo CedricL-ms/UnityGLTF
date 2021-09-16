@@ -1092,11 +1092,6 @@ namespace UnityGLTF
                 // previous nodes should be parented to sceneObj so destroying sceneObj should take
                 // care of them.
 
-                if (ex is OutOfMemoryException)
-                {
-                    Resources.UnloadUnusedAssets();
-                }
-
                 Debug.Log($"ConstructScene exception caught: {ex.GetType().ToString()} for scene {_gltfFileName}");
 
                 throw;
@@ -1217,11 +1212,6 @@ namespace UnityGLTF
                 // If some failure occured during loading, clean up the GameObject that may not be explicitly parented
                 GameObject.DestroyImmediate(nodeObj);
                 _assetCache.NodeCache[nodeIndex] = null;
-
-                if (ex is OutOfMemoryException)
-                {
-                    Resources.UnloadUnusedAssets();
-                }
 
                 throw;
             }
@@ -1400,11 +1390,6 @@ namespace UnityGLTF
                     // If some failure occured during loading, clean up the GameObject that may not be explicitly parented
                     GameObject.DestroyImmediate(primitiveObj);
                     _assetCache.MeshCache[meshId][i].PrimitiveGO = null;
-
-                    if (ex is OutOfMemoryException)
-                    {
-                        Resources.UnloadUnusedAssets();
-                    }
 
                     throw;
                 }
